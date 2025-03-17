@@ -54,6 +54,9 @@ export default $config({
 })
 ```
 
+No `set-cookie` header is present
+![image showing the bug of not having a set cookie header](docs/example.png)
+
 ## reproduction
 
 > NOTE: I have this already deployed here to get a quick peek
