@@ -13,7 +13,12 @@ export default $config({
     new sst.aws.Function('TestFunction', {
       handler: '.output/server/index.handler',
       streaming: true,
+      timeout: '1 minutes',
       url: true,
+    })
+
+    new sst.aws.StaticSite('Site', {
+      path: './site',
     })
   },
 })

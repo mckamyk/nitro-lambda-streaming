@@ -5,6 +5,10 @@
 
 declare module "sst" {
   export interface Resource {
+    "Site": {
+      "type": "sst.aws.StaticSite"
+      "url": string
+    }
     "TestFunction": {
       "name": string
       "type": "sst.aws.Function"

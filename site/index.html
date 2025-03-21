@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      fetch(
+        'https://eqxfwy3vd2v7qv3ush7ue7ij5e0lothx.lambda-url.us-east-1.on.aws',
+      ).then((response) => {
+        const reader = response.body.getReader()
+        const decoder = new TextDecoder('utf-8')
+        function readChunk() {
+          reader.read().then(({ done, value }) => {
+            if (done) {
+              console.log('Stream complete')
+              return
+            }
+            const chunk = decoder.decode(value)
+            document.body.innerText += chunk // Append each chunk to the UI
+            readChunk() // Recursively read the next chunk
+          })
+        }
+        readChunk()
+      })
+    </script>
+    <style>
+      body {
+        background-color: #181818;
+        color: white;
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
